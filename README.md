@@ -41,5 +41,5 @@ Adjustments plan :
 
 ​	May be viewed 
 
-[here]: https://docs.google.com/document/d/1J7ajWi-ufCvDecWNziYcyeI46Jwq1VOIiWjT5Mre0Fs/edit#
+[here]: https://bit.ly/2KekAue
 
