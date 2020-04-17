@@ -39,7 +39,4 @@ Adjustments plan :
 
 #### Project Plan:
 
-​	May be viewed 
-
-[here]: https://bit.ly/2KekAue
-
+​	May be viewed *[here](https://bit.ly/2KekAue)*
