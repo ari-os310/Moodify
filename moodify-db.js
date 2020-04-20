@@ -12,10 +12,11 @@ class MoodifyDatabase {
       console.log(`Found ${count} moods.`)
     );
   }
-
+  
   getMoodsCount() {
     return this.db.one('SELECT count(*) FROM moods').then((m) => m.count);
   }
+
 }
 
 module.exports = MoodifyDatabase;

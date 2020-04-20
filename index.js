@@ -1,8 +1,7 @@
 // REQUIRED
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const MoodifyDB = require('./src/moodify-db');
+const MoodifyDB = require('./moodify-db');
 
 /* DEFAULT CONST */
 const PORT = process.env.PORT || 3001;
@@ -13,13 +12,21 @@ const db = new MoodifyDB(dbName);
 const app = express();
 
 /* MIDDLEWARE */
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(cors({ origin: true, credentials: true }));
 
 /* ROUTES */
+app.get('/greeting', (req, res) => {
+  const name = req.query.name || 'World';
+  res.setHeader('Content-Type', 'application/json');
+  res.send(
+    JSON.stringify({
+      greeting: `Hello ${name}!`,
+    })
+  );
+});
 
 /* CHECK DATABASE CONNECTION */
 db.dbConnectionCheck().then(() => {
