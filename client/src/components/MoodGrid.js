@@ -8,7 +8,7 @@ class MoodGrid extends Component {
       <div className='container'>
         <Row>
           {this.props.moods.map((mood) => (
-            <MoodCard key={mood.id} mood={mood} />
+            <MoodCard key={mood.mood_id} mood={mood} />
           ))}
         </Row>
       </div>

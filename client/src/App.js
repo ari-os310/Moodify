@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import MoodGrid from './components/MoodGrid';
 import { getAllMoods } from './helper-functions/moodify-db-functions';
 import './App.css';
+import AffirmationsList from './components/AffirmationsList';
 
 const initialState = {
   name: '',
   greeting: '',
-  moods: []
+  moods: [],
 };
 
 class App extends Component {
@@ -19,7 +20,6 @@ class App extends Component {
     getAllMoods().then((moods) => this.setState({ moods: moods }));
   }
 
-  
   handleChange = (event) => {
     this.setState({ name: event.target.value });
   };
@@ -32,7 +32,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.moods)
+    console.log(this.state.moods);
     return (
       <div className='App'>
         <form onSubmit={this.handleSubmit}>
@@ -47,6 +47,9 @@ class App extends Component {
         </form>
         <p>{this.state.greeting}</p>
         <MoodGrid moods={this.state.moods} />
+        <AffirmationsList />
+        {/* mood deets mood (single) = ...current mood => new component contains sub page 
+        if !mood => 000*/}
       </div>
     );
   }

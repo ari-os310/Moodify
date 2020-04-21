@@ -22,7 +22,8 @@ class MoodifyDatabase {
       `SELECT 
         m.mood_id,
         m.mood_type,
-        m.click_me
+        m.mood_blurb,
+        m.mood_avatar
         FROM moods m`
     );
   }
