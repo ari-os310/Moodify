@@ -1,6 +1,7 @@
 // REQUIRED
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const MoodifyDB = require('./moodify-db');
 
 /* DEFAULT CONST */
@@ -27,6 +28,13 @@ app.get('/greeting', (req, res) => {
     })
   );
 });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static('client/build'));
+  app.get('*', (req,res) => {
+    res.sendfile(path.resolve(__dirname, 'client', 'biuld', 'index.html'));
+  })
+}
 
 /* CHECK DATABASE CONNECTION */
 db.dbConnectionCheck().then(() => {
