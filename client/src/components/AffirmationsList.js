@@ -7,7 +7,7 @@ const AffirmationsList = (props) => {
       <br />
       <ListGroup>
         {props.affirmations.map((affirmation) => (
-          <ListGroupItem tag='button' action>
+          <ListGroupItem key={affirmation.id} tag='button' action>
             {affirmation}
           </ListGroupItem>
         ))}

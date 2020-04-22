@@ -4,8 +4,8 @@
 }
 
 .card {
-    width: 100%;
-    cursor: pointer;
+  width: 100%;
+  cursor: pointer;
 }
 
 .card-title {
@@ -31,4 +31,9 @@
 }
 .list-group :hover {
   background-color: rgb(218, 249, 210);
+}
+
+/* Avatar Bar */
+h1 {
+  text-align: center;
 }

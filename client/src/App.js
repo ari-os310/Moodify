@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MoodGrid from './components/MoodGrid';
-import { getAllMoods } from './helper-functions/moodify-db-functions';
 import './App.css';
-import AffirmationsList from './components/AffirmationsList';
+import { getAllMoods } from './helper-functions/moodify-db-functions';
+import MoodGrid from './components/MoodGrid';
+import AvatarPage from './components/AvatarPage';
 
 const initialState = {
   moods: [],
@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div className='App'>
         <MoodGrid moods={this.state.moods} />
-        <AffirmationsList affirmations={this.state.affirmations} />
+        <AvatarPage affirmations={this.state.affirmations} />
         {/* mood deets mood (single) = ...current mood => new component contains sub page 
         if !mood => 000*/}
       </div>
