@@ -15,5 +15,4 @@ const AffirmationsList = (props) => {
     </div>
   );
 };
-
 export default AffirmationsList;

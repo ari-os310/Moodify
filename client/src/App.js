@@ -21,6 +21,8 @@ class App extends Component {
 
   onClick = (mood) => {
     this.setState({ currentMood: mood });
+    window.location.hash = "currentMood";
+    // window.location.hash = mood.mood_type;
   };
 
   render() {
