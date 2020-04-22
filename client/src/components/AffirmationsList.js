@@ -6,21 +6,11 @@ const AffirmationsList = (props) => {
     <div className='AffirmationsList'>
       <br />
       <ListGroup>
-        <ListGroupItem tag='button' action>
-          Affirmation 1
-        </ListGroupItem>
-        <ListGroupItem tag='button' action>
-        Affirmation 2 Affirmation 2 Affirmation 2
-        </ListGroupItem>
-        <ListGroupItem tag='button' action>
-          Affirmation 3
-        </ListGroupItem>
-        <ListGroupItem tag='button' action>
-          Affirmation 4
-        </ListGroupItem>
-        <ListGroupItem tag='button' action>
-          Affirmation 5
-        </ListGroupItem>
+        {props.affirmations.map((affirmation) => (
+          <ListGroupItem tag='button' action>
+            {affirmation}
+          </ListGroupItem>
+        ))}
       </ListGroup>
     </div>
   );

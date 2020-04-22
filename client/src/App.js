@@ -5,9 +5,14 @@ import './App.css';
 import AffirmationsList from './components/AffirmationsList';
 
 const initialState = {
-  name: '',
-  greeting: '',
   moods: [],
+  affirmations: [
+    'Affirmation1',
+    'Affirmation2Affirmation',
+    'Affirmation3',
+    'Affirmation4',
+    'Affirmation5',
+  ],
 };
 
 class App extends Component {
@@ -20,34 +25,12 @@ class App extends Component {
     getAllMoods().then((moods) => this.setState({ moods: moods }));
   }
 
-  handleChange = (event) => {
-    this.setState({ name: event.target.value });
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    fetch(`/greeting?name=${encodeURIComponent(this.state.name)}`)
-      .then((response) => response.json())
-      .then((state) => this.setState(state));
-  };
-
   render() {
     console.log(this.state.moods);
     return (
       <div className='App'>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor='name'>Enter your name: </label>
-          <input
-            id='name'
-            type='text'
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-          <button type='submit'>Submit</button>
-        </form>
-        <p>{this.state.greeting}</p>
         <MoodGrid moods={this.state.moods} />
-        <AffirmationsList />
+        <AffirmationsList affirmations={this.state.affirmations} />
         {/* mood deets mood (single) = ...current mood => new component contains sub page 
         if !mood => 000*/}
       </div>
