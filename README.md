@@ -40,3 +40,7 @@ Adjustments plan :
 #### Project Plan:
 
 ​	May be viewed *[here](https://bit.ly/2KekAue)*
+
+#### Trello WorkFlow:
+
+​	May be viewed *[here](https://bit.ly/3arDQit)*
