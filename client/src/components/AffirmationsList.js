@@ -10,7 +10,7 @@ const AffirmationsList = (props) => {
           Affirmation 1
         </ListGroupItem>
         <ListGroupItem tag='button' action>
-          Affirmation 2
+        Affirmation 2 Affirmation 2 Affirmation 2
         </ListGroupItem>
         <ListGroupItem tag='button' action>
           Affirmation 3
