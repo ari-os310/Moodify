@@ -1,4 +1,4 @@
-# Moodify
+# [Moodify](http://moodi-fy.herokuapp.com)
 
 ## What is *Moodify*?
 
