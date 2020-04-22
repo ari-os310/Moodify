@@ -1,14 +1,12 @@
 import React from 'react';
 import { Col, Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
-const MoodCard = (props) => {
-  const { mood_avatar, mood_blurb, mood_type } = props.mood;
+const MoodCard = ({ mood, onClick }) => {
+  const { mood_avatar, mood_blurb, mood_type } = mood;
   return (
     <Col xs='6' sm='4'>
       <br />
-      <Card
-        // tag='a'
-        onClick={() => console.log({ mood_type })}>
+      <Card onClick={() => onClick(mood)}>
         <CardBody className='text-center'>
           <CardTitle>{mood_type}</CardTitle>
           <CardImg

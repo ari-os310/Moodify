@@ -6,13 +6,7 @@ import AvatarPage from './components/AvatarPage';
 
 const initialState = {
   moods: [],
-  affirmations: [
-    'Affirmation1',
-    'Affirmation2Affirmation',
-    'Affirmation3',
-    'Affirmation4',
-    'Affirmation5',
-  ],
+  currentMood: null,
 };
 
 class App extends Component {
@@ -25,14 +19,17 @@ class App extends Component {
     getAllMoods().then((moods) => this.setState({ moods: moods }));
   }
 
+  onClick = (mood) => {
+    this.setState({ currentMood: mood });
+  };
+
   render() {
-    console.log(this.state.moods);
     return (
       <div className='App'>
-        <MoodGrid moods={this.state.moods} />
-        <AvatarPage affirmations={this.state.affirmations} />
-        {/* mood deets mood (single) = ...current mood => new component contains sub page 
-        if !mood => 000*/}
+        <MoodGrid moods={this.state.moods} onClick={this.onClick} />
+        {this.state.currentMood ? (
+          <AvatarPage mood={this.state.currentMood} />
+        ) : null}
       </div>
     );
   }
