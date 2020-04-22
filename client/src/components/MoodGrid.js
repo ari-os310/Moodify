@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import MoodCard from './MoodCard';
 import { Row } from 'reactstrap';
 
-class MoodGrid extends Component {
-  render() {
+const MoodGrid = (props) => {
     return (
       <div className='container'>
         <Row>
-          {this.props.moods.map((mood) => (
+          {props.moods.map((mood) => (
             <MoodCard key={mood.mood_id} mood={mood} />
           ))}
         </Row>
       </div>
     );
   }
-}
 
 export default MoodGrid;

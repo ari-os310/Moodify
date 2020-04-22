@@ -9,8 +9,7 @@ class MoodCard extends Component {
         <br />
         <Card
           // tag='a'
-          onClick={() => console.log({mood_type})}
-          style={{ width: '100%', cursor: 'pointer' }}>
+          onClick={() => console.log({ mood_type })}>
           <CardBody className='text-center'>
             <CardTitle>{mood_type}</CardTitle>
             <CardImg

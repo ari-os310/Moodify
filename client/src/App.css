@@ -1,5 +1,11 @@
+/* CARD STYLING */
 .card :hover {
   background-color: rgb(255, 212, 175);
+}
+
+.card {
+    width: 100%;
+    cursor: pointer;
 }
 
 .card-title {
@@ -13,6 +19,7 @@
   font-size: large;
 }
 
+/* AFFIRMATIONS STYLING */
 .list-group {
   margin-left: 5%;
   width: fit-content;
