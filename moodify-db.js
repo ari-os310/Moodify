@@ -2,7 +2,8 @@ const pgp = require('pg-promise')();
 
 class MoodifyDatabase {
   constructor(name) {
-    const connectionString = `postgres://localhost:5432/${name}`;
+    const connectionString =
+      process.env.DATABASE_URL || `postgres://localhost:5432/${name}`;
     this.db = pgp(connectionString);
   }
 
