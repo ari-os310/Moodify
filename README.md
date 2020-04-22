@@ -37,6 +37,23 @@ Adjustments plan :
 - Not enough time for OAuth/Auth0
   - Users will be able to play affirmations but won't be able to modify them
 
+## Running Moodify:
+
+###### Post repo clone, do the following:
+
+- Move into Moodify directory 
+  - `cd Moodify`
+- install express dependencies
+  - `npm install`
+- Start server
+  - `node index.js` || `nodemon` (if nodemon installed)
+- Change into client side directory
+  - `cd client`
+- Install react dependencies
+  - `npm install`
+- Start React app
+  - `npm start`
+
 #### [Project Plan](https://bit.ly/2KekAue)
 
 #### [Trello WorkFlow](https://bit.ly/3arDQit)
