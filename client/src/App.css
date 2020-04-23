@@ -4,19 +4,28 @@
 }
 
 .card {
-  width: 75%;
+  width: 98%;
+  height: 90%;
   cursor: pointer;
 }
 
 .card-title {
   font-family: 'Overpass', sans-serif;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.5em;
+  display: inline-flex;
+  text-align: center;
 }
 
 .card-text {
+  text-align: center;
   padding-top: 1em;
-  font-size: large;
+  font-size: medium;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
 }
 
 /* AFFIRMATIONS STYLING */
