@@ -21,11 +21,25 @@ class MoodifyDatabase {
   getAllMoods() {
     return this.db.any(
       `SELECT 
-        m.mood_id,
-        m.mood_type,
-        m.mood_blurb,
-        m.mood_avatar
-        FROM moods m`
+      m.mood_id,
+      m.mood_type,
+      m.mood_blurb,
+      m.mood_avatar
+      FROM moods m`
+    );
+  }
+
+  getAffirmationByMood(mood) {
+    return this.db.any(
+      `SELECT 
+      a.id,
+      a.affirmation,
+      a.mood_id,
+      m.mood_type AS mood 
+      FROM affirmations a
+      INNER JOIN moods m on m.mood_id = a.mood_id
+      WHERE m.mood_type = $1`,
+      mood
     );
   }
 }

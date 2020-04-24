@@ -19,16 +19,8 @@ app.use(express.static('public'));
 app.use(cors({ origin: true, credentials: true }));
 
 /* ROUTES */
-app.get('/greeting', (req, res) => {
-  const name = req.query.name || 'World';
-  res.setHeader('Content-Type', 'application/json');
-  res.send(
-    JSON.stringify({
-      greeting: `Hello ${name}!`,
-    })
-  );
-});
 
+// GET ALL MOODS
 app.get('/moods', (_unused, res) => {
   db.getAllMoods()
     .then((moods) => res.json(moods))
@@ -38,6 +30,18 @@ app.get('/moods', (_unused, res) => {
     });
 });
 
+//GET AFFIRMATIONS BY MOOD
+app.get('/moods/:mood/affirmations', (req, res) => {
+  const mood = req.params.mood;
+  db.getAffirmationByMood(mood)
+    .then((affirmations) => res.json(affirmations))
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+});
+
+/* FOR HEROKU-DEPLOYMENT */
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {

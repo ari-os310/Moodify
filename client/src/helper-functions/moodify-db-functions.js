@@ -18,3 +18,18 @@ export function getAllMoods() {
     }
   });
 }
+
+export function getAffirmationByMood(mood) {
+  const path = `/moods/${mood}/affirmations`;
+  return fetch(path, {
+    headers: {
+      Accept: 'application/json',
+    },
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      throw new Error(sendError(path, res));
+    }
+  });
+}
