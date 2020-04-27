@@ -41,6 +41,11 @@ Adjustments plan :
 
 ###### Post repo clone, do the following:
 
+- Create database
+  - `createdb moodify_db`
+- Dump database file into created database
+  - `psql moodify_db < moodify_db-2020-04-27.sql`
+
 - Move into Moodify directory 
   - `cd Moodify`
 - install express dependencies
