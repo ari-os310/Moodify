@@ -8,14 +8,14 @@ const AvatarPage = (props) => {
   const [affirmations, setAffirmations] = useState([]);
 
   if (mood && affirmations.length === 0) {
-    getAffirmationByMood(mood.mood_type).then((affirmations) => {
+    getAffirmationByMood(mood.name).then((affirmations) => {
       setAffirmations(affirmations);
     });
   }
 
   return (
     <div className='AvatarPage'>
-      <AvatarBar mood_type={mood.mood_type} />
+      <AvatarBar mood_type={mood.name} />
       <AffirmationsList affirmations={affirmations} />
     </div>
   );

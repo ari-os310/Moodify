@@ -2,19 +2,19 @@ import React from 'react';
 import { Col, Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
 const MoodCard = ({ mood, onClick }) => {
-  const { mood_avatar, mood_blurb, mood_type } = mood;
+  const { avatar, blurb, name } = mood;
   return (
     <Col xs='6' sm='4'>
       <br />
       <Card onClick={() => onClick(mood)}>
         <CardBody className='text-center'>
-          <CardTitle>{mood_type}</CardTitle>
+          <CardTitle>{name}</CardTitle>
           <CardImg
             className='avatar'
-            src={mood_avatar}
-            alt={mood_type + ' avatar'}
+            src={avatar}
+            alt={mood + ' avatar'}
           />
-          <CardText>{mood_blurb}</CardText>
+          <CardText>{blurb}</CardText>
         </CardBody>
       </Card>
     </Col>

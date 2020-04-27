@@ -21,10 +21,10 @@ class MoodifyDatabase {
   getAllMoods() {
     return this.db.any(
       `SELECT 
-      m.mood_id,
-      m.mood_type,
-      m.mood_blurb,
-      m.mood_avatar
+      m.id,
+      m.name,
+      m.blurb,
+      m.avatar
       FROM moods m`
     );
   }
@@ -35,10 +35,10 @@ class MoodifyDatabase {
       a.id,
       a.affirmation,
       a.mood_id,
-      m.mood_type AS mood 
+      m.name
       FROM affirmations a
-      INNER JOIN moods m on m.mood_id = a.mood_id
-      WHERE m.mood_type = $1`,
+      INNER JOIN moods m on m.id = a.mood_id
+      WHERE name = $1`,
       mood
     );
   }

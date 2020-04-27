@@ -9,7 +9,7 @@ const MoodGrid = (props) => {
         {props.moods.map((mood) => (
           <MoodCard
             onClick={(mood) => props.onClick(mood)}
-            key={mood.mood_id}
+            key={mood.id}
             mood={mood}
           />
         ))}
