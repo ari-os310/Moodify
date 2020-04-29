@@ -6,8 +6,8 @@ const AvatarBar = (props) => {
     <div>
       <Jumbotron fluid>
         <Container fluid>
-          <h1 key={props.mood_type} className='display-3'>
-            {props.mood_type + ' Avatar'}
+          <h1 key={props.title} className='display-3'>
+            {props.title + ' Avatar'}
           </h1>
         </Container>
       </Jumbotron>

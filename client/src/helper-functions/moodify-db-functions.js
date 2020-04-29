@@ -10,13 +10,15 @@ export function getAllMoods() {
     headers: {
       Accept: 'application/json',
     },
-  }).then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      throw new Error(sendError(path, res));
-    }
-  });
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error(sendError(path, res));
+      }
+    })
+    .catch(console.error);
 }
 
 export function getAffirmationByMood(mood) {
@@ -25,11 +27,13 @@ export function getAffirmationByMood(mood) {
     headers: {
       Accept: 'application/json',
     },
-  }).then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      throw new Error(sendError(path, res));
-    }
-  });
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error(sendError(path, res));
+      }
+    })
+    .catch(console.error);
 }
