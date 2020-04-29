@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { getAffirmationByMood } from '../helper-functions/moodify-db-functions';
-import AvatarBar from './AvatarBar';
 import AffirmationsList from './AffirmationsList';
+import AvatarTitle from './AvatarTitle';
 
 const AvatarPage = (props) => {
   const mood = props.mood;
@@ -23,7 +23,7 @@ const AvatarPage = (props) => {
 
   return (
     <div className='AvatarPage'>
-      <AvatarBar title={mood.name} />
+      <AvatarTitle title={mood.name} />
       <AffirmationsList affirmations={affirmations} />
     </div>
   );

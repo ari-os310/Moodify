@@ -1,7 +1,7 @@
 import React from 'react';
 import { Jumbotron, Container } from 'reactstrap';
 
-const AvatarBar = (props) => {
+const AvatarTitle = (props) => {
   return (
     <div>
       <Jumbotron fluid>
@@ -15,4 +15,4 @@ const AvatarBar = (props) => {
   );
 };
 
-export default AvatarBar;
+export default AvatarTitle;
