@@ -6,10 +6,10 @@ const MoodGrid = (props) => {
   return (
     <div className='container'>
       <Row>
-        {props.moods.map((mood) => (
+        {props.moods.map((mood, i) => (
           <MoodCard
             onClick={(mood) => props.onClick(mood)}
-            key={mood.id}
+            key={i}
             mood={mood}
           />
         ))}

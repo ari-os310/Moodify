@@ -42,6 +42,15 @@ class MoodifyDatabase {
       mood
     );
   }
+
+  getAffirmationById(id) {
+    return this.db.one(
+      `SELECT *
+       FROM affirmations 
+       WHERE id = $1`,
+      id
+    );
+  }
 }
 
 module.exports = MoodifyDatabase;

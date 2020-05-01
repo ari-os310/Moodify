@@ -7,6 +7,7 @@ import AvatarPage from './components/AvatarPage';
 const initialState = {
   moods: [],
   currentMood: null,
+  // audioFile: []
 };
 
 class App extends Component {
@@ -23,6 +24,8 @@ class App extends Component {
     this.setState({ currentMood: mood });
     window.location.hash = 'currentMood';
   };
+
+  // sendAudio().then((audioFile) => this.setState({audioFile: audioFile}));
 
   render() {
     return (
