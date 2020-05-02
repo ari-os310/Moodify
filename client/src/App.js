@@ -4,7 +4,7 @@ import { getAllMoods } from './helper-functions/moodify-db-functions';
 import MoodGrid from './components/MoodGrid';
 import AvatarPage from './components/AvatarPage';
 import NavBar from './components/NavBar';
-// import Reset from './components/Reset';
+import Reset from './components/Reset';
 
 const initialState = {
   moods: [],
@@ -23,6 +23,7 @@ class App extends Component {
 
   resetMoodState = () => {
     this.setState({ currentMood: null });
+    window.history.replaceState(null, null, ' ');
   };
 
   onClick = (mood) => {
@@ -34,11 +35,16 @@ class App extends Component {
     return (
       <div className='App'>
         <NavBar />
+
         <MoodGrid moods={this.state.moods} onClick={this.onClick} />
         <div id='currentMood'>
           {this.state.currentMood ? (
             <AvatarPage mood={this.state.currentMood} />
           ) : null}
+        </div>
+
+        <div className='Reset'>
+          <Reset reset={this.resetMoodState} />
         </div>
       </div>
     );

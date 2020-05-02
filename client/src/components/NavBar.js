@@ -14,12 +14,14 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Button from '@material-ui/core/Button';
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    // flexGrow: 1,
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
@@ -37,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+  },
+  login: {
+    marginLeft: theme.spacing(111),
   },
   hide: {
     display: 'none',
@@ -74,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavBar(props) {
+export default function NavBar() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -107,6 +112,9 @@ export default function NavBar(props) {
           <Typography variant='h6' noWrap>
             Moodify
           </Typography>
+          <Button className={classes.login} color='inherit'>
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -138,17 +146,16 @@ export default function NavBar(props) {
           ))}
         </List>
         {/* <Divider /> */}
-
       </Drawer>
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}>
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
+        {/* <Typography paragraph>
           
         </Typography>
-        <Typography paragraph></Typography>
+        <Typography paragraph></Typography> */}
       </main>
     </div>
   );
