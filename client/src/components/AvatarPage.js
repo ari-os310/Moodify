@@ -7,14 +7,16 @@ const AvatarPage = (props) => {
   const mood = props.mood;
   const [affirmations, setAffirmations] = useState([]);
 
-  if (mood && affirmations.length === 0) {
+  const getAffirmations = () => {
     getAffirmationByMood(mood.name).then((affirmations) => {
       setAffirmations(affirmations);
     });
+  };
+
+  if (mood && !affirmations.length) {
+    getAffirmations();
   } else if (affirmations[0].mood_id !== mood.id) {
-    getAffirmationByMood(mood.name).then((affirmations) => {
-      setAffirmations(affirmations);
-    });
+    getAffirmations();
   }
 
   return (
