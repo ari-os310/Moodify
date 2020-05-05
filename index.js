@@ -22,7 +22,7 @@ const textToSpeech = new TextToSpeechV1({
 
 const synthesizeParams = {
   accept: 'audio/mp3',
-  voice: 'en-US_AllisonVoice',
+  voice: 'en-US_AllisonV3Voice',
 };
 
 /* MIDDLEWARE */
@@ -54,12 +54,25 @@ app.get('/moods/:mood/affirmations', (req, res) => {
     });
 });
 
+// GET AFFIRMATION TEXT
 app.get('/affirmations/:id.txt', (req, res) => {
   db.getAffirmationById(req.params.id).then((affirmation) =>
     res.type('txt').send(affirmation.affirmation)
   );
 });
 
+/*** leaving here for future PUT/DELETE *** \
+
+// Get Affirmation by Id 
+// app.get('/affirmations/:id', (req, res) => {
+//   db.getAffirmationById(req.params.id).then((affirmation) =>
+//     res.json(affirmation)
+//   );
+// });
+
+/* TEXT TO SPEECH */
+
+// PLAY TEXT TO SPEECH BY AFFIRMATION
 app.get('/affirmations/:id.mp3', (req, res) => {
   db.getAffirmationById(req.params.id).then((affirmation) =>
     textToSpeech
@@ -78,21 +91,12 @@ app.get('/affirmations/:id.mp3', (req, res) => {
   );
 });
 
-// Get Affirmation by Id
-app.get('/affirmations/:id', (req, res) => {
-  db.getAffirmationById(req.params.id).then((affirmation) =>
-    res.json(affirmation)
-  );
-});
-
-/* Text to Speech */
-
-// Voice List
-app.get('/voiceList', (__, res) => {
+// GET ALL VOICES
+app.get('/voicelist', (__, res) => {
   textToSpeech
     .listVoices()
     .then((voices) => {
-      res.json(voices);
+      res.json(voices.result.voices);
     })
     .catch((err) => {
       console.log('error:', err);
@@ -100,34 +104,17 @@ app.get('/voiceList', (__, res) => {
     });
 });
 
-// Get Audio File
-app.get('/helloWorld', (__, res) => {
+// GET VOICE BY NAME
+app.get('/voices/:voice', (req, res) => {
+  const voice = { voice: req.params.voice };
   textToSpeech
-    .synthesize(synthesizeParams)
-    .then((audio) => {
-      console.log(audio);
-      const data = [];
-      console.log(
-        'The audio object is of type:',
-        typeof audio,
-        '--and is:',
-        audio
-      );
-
-      // res.type('mp3')
-      // res.send(audio.result.read())
-      audio.result
-        .on('data', (chunk) => {
-          data.push(chunk);
-        })
-        .on('end', () => {
-          const buffer = Buffer.concat(data);
-          res.type('mp3').send(buffer);
-          // res.json({ helloWorld: buffer.toString('base64') });
-        });
+    .getVoice(voice)
+    .then((voice) => {
+      res.json(voice.result);
     })
     .catch((err) => {
-      console.log('error:', err, err.stack);
+      console.log('error:', err);
+      res.sendStatus(500);
     });
 });
 

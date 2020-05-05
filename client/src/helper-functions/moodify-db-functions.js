@@ -38,20 +38,3 @@ export function getAffirmationByMood(mood) {
     .catch(console.error);
 }
 
-export function sendAudio() {
-  const path = `/helloWorld`;
-  return fetch(path, {
-    headers: {
-      Accept: 'application/json',
-    },
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        throw new Error(sendError(path, res));
-      }
-    })
-    .catch(console.error);
-}
-
