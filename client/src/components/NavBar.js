@@ -40,9 +40,6 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  login: {
-    marginLeft: theme.spacing(111),
-  },
   hide: {
     display: 'none',
   },
@@ -79,7 +76,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavBar() {
+export default function NavBar(props) {
+  const voices = props.voices;
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -112,9 +110,6 @@ export default function NavBar() {
           <Typography variant='h6' noWrap>
             Moodify
           </Typography>
-          <Button className={classes.login} color='inherit'>
-            Login
-          </Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -136,12 +131,12 @@ export default function NavBar() {
         </div>
         {/* <Divider /> */}
         <List>
-          {['Voice1', 'Voice2', 'Voice3', 'Voice4'].map((text, index) => (
-            <ListItem button key={text}>
+          {voices.map((voice, index) => (
+            <ListItem button key={index}>
               {/* <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon> */}
-              <ListItemText primary={text} />
+              <ListItemText primary={voice.name} />
             </ListItem>
           ))}
         </List>

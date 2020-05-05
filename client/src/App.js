@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getAllMoods } from './helper-functions/moodify-db-functions';
+import {
+  getAllMoods,
+  getAllVoices,
+} from './helper-functions/moodify-db-functions';
 import MoodGrid from './components/MoodGrid';
 import AvatarPage from './components/AvatarPage';
 import NavBar from './components/NavBar';
@@ -9,6 +12,7 @@ import Reset from './components/Reset';
 const initialState = {
   moods: [],
   currentMood: null,
+  voices: [],
 };
 
 class App extends Component {
@@ -19,6 +23,7 @@ class App extends Component {
 
   componentDidMount() {
     getAllMoods().then((moods) => this.setState({ moods: moods }));
+    getAllVoices().then((voices) => this.setState({ voices: voices }));
   }
 
   resetMoodState = () => {
@@ -34,7 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <NavBar />
+        <NavBar voices={this.state.voices} />
 
         <MoodGrid moods={this.state.moods} onClick={this.onClick} />
         <div id='currentMood'>
