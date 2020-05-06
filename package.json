@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
+    "build": "webpack",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
