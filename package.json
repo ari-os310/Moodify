@@ -1,6 +1,9 @@
 {
   "name": "moodify",
   "version": "1.0.0",
+  "engines": {
+    "node": "13.7.0"
+  },
   "description": "Gives affirmations using text-to-speech tp help boost mood. PERN stack",
   "main": "index.js",
   "scripts": {
