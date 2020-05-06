@@ -130,6 +130,7 @@ export default function NavBar(props) {
           </IconButton>
         </div>
         {/* <Divider /> */}
+        
         <List>
           {voices.map((voice, index) => (
             <ListItem button key={index}>
