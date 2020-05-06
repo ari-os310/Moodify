@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { getAffirmationByMood } from '../helper-functions/moodify-db-functions';
 import AffirmationsList from './AffirmationsList';
 import AvatarTitle from './AvatarTitle';
+import AddAffirmation from './AddAffirmation';
+import { Col, Container, Row } from 'reactstrap';
 
 const AvatarPage = (props) => {
   const mood = props.mood;
@@ -22,7 +24,16 @@ const AvatarPage = (props) => {
   return (
     <div className='AvatarPage'>
       <AvatarTitle title={mood.name} />
-      <AffirmationsList affirmations={affirmations} />
+      <Container fluid={true}>
+        <Row xs='2'>
+          <Col>
+            <AffirmationsList affirmations={affirmations} />
+          </Col>
+          <Col>
+            <AddAffirmation />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };

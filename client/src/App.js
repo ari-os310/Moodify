@@ -12,7 +12,7 @@ import Reset from './components/Reset';
 const initialState = {
   moods: [],
   currentMood: null,
-  voices: [],
+  voices: []
 };
 
 class App extends Component {
