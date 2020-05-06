@@ -51,6 +51,16 @@ class MoodifyDatabase {
       id
     );
   }
+
+  createAffirmation(affirmation) {
+    return this.db.one(
+      `INSERT INTO affirmations 
+      (affirmation, mood_id)
+      VALUES ($1, $2)
+      RETURNING *`,
+      [affirmation]
+    );
+  }
 }
 
 module.exports = MoodifyDatabase;
