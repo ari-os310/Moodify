@@ -61,10 +61,17 @@ app.get('/affirmations/:id.txt', (req, res) => {
   );
 });
 
+// TO DELETE ?? /GET AFFIRMATION TEXT
+// app.get('/affirmations/:id.txt', (req, res) => {
+//   db.getAffirmationById(req.params.id).then((affirmation) =>
+//     res.type('txt').send(affirmation.affirmation)
+//   );
+// });
+
 /*** leaving here for future PUT/DELETE *** \
 
-// Get Affirmation by Id 
-// app.get('/affirmations/:id', (req, res) => {
+// DELETE AFFITMATION 
+// app.delete('/affirmations/:id', (req, res) => {
 //   db.getAffirmationById(req.params.id).then((affirmation) =>
 //     res.json(affirmation)
 //   );
