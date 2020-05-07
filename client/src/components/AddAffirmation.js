@@ -9,7 +9,6 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText,
 } from 'reactstrap';
 
 const AddAffirmation = (props) => {
@@ -29,20 +28,27 @@ const AddAffirmation = (props) => {
 
   return (
     <Col>
-      <Card id="addaffirmation">
-        <CardHeader id="addaffirmation" tag='h3'>Add Your Own</CardHeader>
-        <CardBody id="addaffirmation">
+      <Card id='addaffirmation'>
+        <CardHeader id='addaffirmation' tag='h3'>
+          Add Your Own
+        </CardHeader>
+        <CardBody id='addaffirmation'>
           <Form>
             <FormGroup row>
               <Label for='personal' sm={2}></Label>
               <Col sm={10}>
-                <Input type='textarea' name='text' id='textform' />
+                <Input
+                  type='textarea'
+                  name='text'
+                  id='textform'
+                  placeholder='Want to save an affirmation for later? Go Ahead!'
+                />
               </Col>
             </FormGroup>
 
             <FormGroup check row>
               <Col sm={{ size: 10, offset: 5 }}>
-                <Button>Submit</Button>
+                <Button onClick={handleSubmit}>Submit</Button>
               </Col>
             </FormGroup>
           </Form>
