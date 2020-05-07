@@ -143,6 +143,7 @@ export default function NavBar(props) {
         </List>
         {/* <Divider /> */}
       </Drawer>
+
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,

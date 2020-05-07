@@ -1,5 +1,8 @@
 import React from 'react';
 import {
+  Card,
+  CardHeader,
+  CardBody,
   Col,
   Button,
   Form,
@@ -7,7 +10,6 @@ import {
   Label,
   Input,
   FormText,
-  Table,
 } from 'reactstrap';
 
 const AddAffirmation = (props) => {
@@ -27,20 +29,25 @@ const AddAffirmation = (props) => {
 
   return (
     <Col>
-      <Form>
-        <FormGroup row>
-          <Label for='addAffirmation' sm={2}></Label>
-          <Col sm={10}>
-            <Input type='textarea' name='text' id='textform' />
-          </Col>
-        </FormGroup>
+      <Card id="addaffirmation">
+        <CardHeader id="addaffirmation" tag='h3'>Add Your Own</CardHeader>
+        <CardBody id="addaffirmation">
+          <Form>
+            <FormGroup row>
+              <Label for='personal' sm={2}></Label>
+              <Col sm={10}>
+                <Input type='textarea' name='text' id='textform' />
+              </Col>
+            </FormGroup>
 
-        <FormGroup check row>
-          <Col sm={{ size: 10, offset: 5 }}>
-            <Button>Submit</Button>
-          </Col>
-        </FormGroup>
-      </Form>
+            <FormGroup check row>
+              <Col sm={{ size: 10, offset: 5 }}>
+                <Button>Submit</Button>
+              </Col>
+            </FormGroup>
+          </Form>
+        </CardBody>
+      </Card>
     </Col>
   );
 };

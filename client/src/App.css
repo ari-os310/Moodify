@@ -1,9 +1,9 @@
 /* CARD STYLING */
-.card :hover {
+.card:hover:not(#addaffirmation) {
   background-color: rgb(255, 212, 175);
 }
 
-.card {
+.card:not(#addaffirmation) {
   width: 98%;
   height: 90%;
   cursor: pointer;
