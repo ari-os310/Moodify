@@ -54,11 +54,16 @@ app.get('/moods/:mood/affirmations', (req, res) => {
     });
 });
 
-// GET AFFIRMATION TEXT
-app.get('/affirmations/:id.txt', (req, res) => {
-  db.getAffirmationById(req.params.id).then((affirmation) =>
-    res.type('txt').send(affirmation.affirmation)
-  );
+// POST AFFIRMATION
+app.post('/moods/:mood/affirmations', (req, res) => {
+  const mood = req.params.mood.id;
+  const affirmation = req.body.affirmation;
+  db.createAffirmation(affirmation, mood)
+    .then((affirmation) => res.json(affirmation))
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 });
 
 // TO DELETE ?? /GET AFFIRMATION TEXT
