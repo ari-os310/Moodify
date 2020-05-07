@@ -88,6 +88,10 @@ app.get('/affirmations/:id.mp3', (req, res) => {
             res.type('mp3').send(buffer);
           });
       })
+      .catch((err) => {
+        console.log('error:', err);
+        res.sendStatus(500);
+      })
   );
 });
 
