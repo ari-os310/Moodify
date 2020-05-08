@@ -13,11 +13,11 @@ const AffirmationsList = (props) => {
         {props.affirmations.map((affirmation, i) => (
           <ListGroupItem key={i} tag='button' action onClick={() => onClick(i)}>
             {affirmation.affirmation}
-            {/* <audio
+            <audio
               className={'audio'}
               src={`/affirmations/${affirmation.id}.mp3`}
               type='audio/mpeg'
-            /> */}
+            />
           </ListGroupItem>
         ))}
       </ListGroup>
