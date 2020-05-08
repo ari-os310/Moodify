@@ -70,16 +70,9 @@ app.post('/moods/:mood/affirmations', (req, res) => {
     });
 });
 
-// TO DELETE ?? /GET AFFIRMATION TEXT
-// app.get('/affirmations/:id.txt', (req, res) => {
-//   db.getAffirmationById(req.params.id).then((affirmation) =>
-//     res.type('txt').send(affirmation.affirmation)
-//   );
-// });
-
 /*** leaving here for future PUT/DELETE *** \
 
-// DELETE AFFITMATION 
+// DELETE AFFIRMATION 
 // app.delete('/affirmations/:id', (req, res) => {
 //   db.getAffirmationById(req.params.id).then((affirmation) =>
 //     res.json(affirmation)

@@ -8,7 +8,6 @@ class MoodifyDatabase {
     this.moodMap = {};
     this.getAllMoods().then((moods) => {
       moods.forEach((mood) => (this.moodMap[mood.name] = mood.id));
-      console.log(this.moodMap);
     });
   }
 
@@ -57,8 +56,8 @@ class MoodifyDatabase {
     );
   };
 
-    // look up memoization
-    // subquery ?
+  // look up memoization
+  // subquery ?
   createAffirmation = ({ affirmation, mood }) => {
     return this.db.one(
       `INSERT INTO affirmations 
