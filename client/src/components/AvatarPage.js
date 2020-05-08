@@ -30,7 +30,7 @@ const AvatarPage = (props) => {
             <AffirmationsList affirmations={affirmations} />
           </Col>
           <Col>
-            <AddAffirmation mood={mood.id} affirmations={affirmations} />
+            <AddAffirmation mood={mood.name} affirmations={affirmations} />
           </Col>
         </Row>
       </Container>

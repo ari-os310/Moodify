@@ -20,16 +20,15 @@ const AddAffirmation = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let userAffirmation = {
-      affirmation: newAffirmation,
-      mood: props.mood,
+      affirmation: newAffirmation
     }
     // addAffirmation(userAffirmation).then((affirmation) => )
-   console.log(userAffirmation)
+   console.log(userAffirmation);
   };
 
   const handleAffirmationChange = (e) => {
     setNewAffirmation(e.target.value);
-    console.log(e.target.value)
+    console.log(newAffirmation)
   }
 
   return (
