@@ -12,7 +12,7 @@ import {
 } from 'reactstrap';
 
 const AddAffirmation = (props) => {
-  //   const [newAffirmation, setNewAffirmation] = useState([]);
+    const [newAffirmation, setNewAffirmation] = useState();
   //   const [isUpdated, setUpdated] = useState(false);
 
   //   const showUpdate = () => setUpdated(true);

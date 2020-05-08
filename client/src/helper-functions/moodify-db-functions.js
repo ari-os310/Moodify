@@ -55,3 +55,22 @@ export function getAllVoices() {
     .catch(console.error);
 }
 
+export function createAffirmation({ affirmation, mood }) {
+  const path = `/moods/${mood}/affirmations`;
+  return fetch(path, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ affirmation, mood }),
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error(sendError(path, res));
+      }
+    })
+    .catch(console.error);
+}
