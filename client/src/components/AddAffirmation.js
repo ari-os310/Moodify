@@ -18,8 +18,12 @@ const AddAffirmation = (props) => {
   //   const showUpdate = () => setUpdated(true);
   //   const hideUpdate = () => setUpdated(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let userAffirmation = {
+      affirmation: newAffirmation,
+      
+    }
     // if () {
     //   };
     //   setNewCard('');
