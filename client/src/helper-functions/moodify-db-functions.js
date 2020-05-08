@@ -55,7 +55,7 @@ export function getAllVoices() {
     .catch(console.error);
 }
 
-export function createAffirmation({ affirmation, mood }) {
+export function addAffirmation({ affirmation, mood }) {
   const path = `/moods/${mood}/affirmations`;
   return fetch(path, {
     method: 'POST',

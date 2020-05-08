@@ -56,7 +56,7 @@ app.get('/moods/:mood/affirmations', (req, res) => {
 
 // POST AFFIRMATION
 app.post('/moods/:mood/affirmations', (req, res) => {
-  db.createAffirmation({
+  db.addAffirmation({
     affirmation: req.body.affirmation,
     mood: req.params.mood,
   })

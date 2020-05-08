@@ -58,7 +58,7 @@ class MoodifyDatabase {
 
   // look up memoization
   // subquery ?
-  createAffirmation = ({ affirmation, mood }) => {
+  addAffirmation = ({ affirmation, mood }) => {
     return this.db.one(
       `INSERT INTO affirmations 
       (affirmation, mood_id)

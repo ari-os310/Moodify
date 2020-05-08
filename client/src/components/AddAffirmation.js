@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { addAffirmation } from '../helper-functions/moodify-db-functions';
 import {
   Card,
   CardHeader,
@@ -12,23 +13,24 @@ import {
 } from 'reactstrap';
 
 const AddAffirmation = (props) => {
-    const [newAffirmation, setNewAffirmation] = useState();
-  //   const [isUpdated, setUpdated] = useState(false);
-
-  //   const showUpdate = () => setUpdated(true);
-  //   const hideUpdate = () => setUpdated(false);
+  const [newAffirmation, setNewAffirmation] = useState();
+  // const [affirmations, setAffirmations] = useState(props.affirmations)
+  // console.log(affirmations)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let userAffirmation = {
       affirmation: newAffirmation,
-      
+      mood: props.mood,
     }
-    // if () {
-    //   };
-    //   setNewCard('');
-    //   setIsFormShown(false);
+    // addAffirmation(userAffirmation).then((affirmation) => )
+   console.log(userAffirmation)
   };
+
+  const handleAffirmationChange = (e) => {
+    setNewAffirmation(e.target.value);
+    console.log(e.target.value)
+  }
 
   return (
     <Col>
@@ -43,9 +45,9 @@ const AddAffirmation = (props) => {
               <Col sm={10}>
                 <Input
                   type='textarea'
-                  name='text'
                   id='textform'
                   placeholder='Want to save an affirmation for later? Go Ahead!'
+                  onChange={handleAffirmationChange}
                 />
               </Col>
             </FormGroup>
