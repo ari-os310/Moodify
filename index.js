@@ -56,9 +56,10 @@ app.get('/moods/:mood/affirmations', (req, res) => {
 
 // POST AFFIRMATION
 app.post('/moods/:mood/affirmations', (req, res) => {
-  const mood = req.params.mood.id;
-  const affirmation = req.body.affirmation;
-  db.createAffirmation(affirmation, mood)
+  db.createAffirmation({
+    affirmation: req.body.affirmation,
+    mood_id: req.params.mood.id,
+  })
     .then((affirmation) => res.json(affirmation))
     .catch((err) => {
       console.error(err);

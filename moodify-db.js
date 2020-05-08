@@ -7,18 +7,18 @@ class MoodifyDatabase {
     this.db = pgp(connectionString);
   }
 
-  dbConnectionCheck() {
+  dbConnectionCheck = () => {
     console.log('Testing database connection...');
     return this.getMoodsCount().then((count) =>
       console.log(`Found ${count} moods.`)
     );
   }
 
-  getMoodsCount() {
+  getMoodsCount = () => {
     return this.db.one('SELECT count(*) FROM moods').then((m) => m.count);
   }
 
-  getAllMoods() {
+  getAllMoods = () => {
     return this.db.any(
       `SELECT 
       m.id,
@@ -29,7 +29,7 @@ class MoodifyDatabase {
     );
   }
 
-  getAffirmationByMood(mood) {
+  getAffirmationByMood = (mood) => {
     return this.db.any(
       `SELECT 
       a.id,
@@ -43,7 +43,7 @@ class MoodifyDatabase {
     );
   }
 
-  getAffirmationById(id) {
+  getAffirmationById = (id) => {
     return this.db.one(
       `SELECT *
        FROM affirmations 
@@ -52,13 +52,13 @@ class MoodifyDatabase {
     );
   }
 
-  createAffirmation(affirmation) {
+  createAffirmation = ({ affirmation, mood_id }) => {
     return this.db.one(
       `INSERT INTO affirmations 
       (affirmation, mood_id)
       VALUES ($1, $2)
       RETURNING *`,
-      [affirmation]
+      [affirmation, mood_id]
     );
   }
 }
