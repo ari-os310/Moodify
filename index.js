@@ -58,12 +58,15 @@ app.get('/moods/:mood/affirmations', (req, res) => {
 app.post('/moods/:mood/affirmations', (req, res) => {
   db.createAffirmation({
     affirmation: req.body.affirmation,
-    mood_id: req.params.mood.id,
+    mood: req.params.mood,
   })
     .then((affirmation) => res.json(affirmation))
     .catch((err) => {
       console.error(err);
-      res.sendStatus(500);
+      res
+        .status(500)
+        .type('json')
+        .send({ message: err.message, stack: err.stack.split('\n') });
     });
 });
 

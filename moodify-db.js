@@ -5,6 +5,11 @@ class MoodifyDatabase {
     const connectionString =
       process.env.DATABASE_URL || `postgres://localhost:5432/${name}`;
     this.db = pgp(connectionString);
+    this.moodMap = {};
+    this.getAllMoods().then((moods) => {
+      moods.forEach((mood) => (this.moodMap[mood.name] = mood.id));
+      console.log(this.moodMap);
+    });
   }
 
   dbConnectionCheck = () => {
@@ -12,11 +17,11 @@ class MoodifyDatabase {
     return this.getMoodsCount().then((count) =>
       console.log(`Found ${count} moods.`)
     );
-  }
+  };
 
   getMoodsCount = () => {
     return this.db.one('SELECT count(*) FROM moods').then((m) => m.count);
-  }
+  };
 
   getAllMoods = () => {
     return this.db.any(
@@ -27,7 +32,7 @@ class MoodifyDatabase {
       m.avatar
       FROM moods m`
     );
-  }
+  };
 
   getAffirmationByMood = (mood) => {
     return this.db.any(
@@ -41,7 +46,7 @@ class MoodifyDatabase {
       WHERE name = $1`,
       mood
     );
-  }
+  };
 
   getAffirmationById = (id) => {
     return this.db.one(
@@ -50,17 +55,19 @@ class MoodifyDatabase {
        WHERE id = $1`,
       id
     );
-  }
+  };
 
-  createAffirmation = ({ affirmation, mood_id }) => {
+    // look up memoization
+    // subquery ?
+  createAffirmation = ({ affirmation, mood }) => {
     return this.db.one(
       `INSERT INTO affirmations 
       (affirmation, mood_id)
       VALUES ($1, $2)
       RETURNING *`,
-      [affirmation, mood_id]
+      [affirmation, this.moodMap[mood]]
     );
-  }
+  };
 }
 
 module.exports = MoodifyDatabase;
