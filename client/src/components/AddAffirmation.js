@@ -15,11 +15,9 @@ import {
 const AddAffirmation = (props) => {
   const mood = props.mood;
   const [newAffirmation, setNewAffirmation] = useState();
-  console.log(props.affirmations);
 
   const handleAffirmationChange = (e) => {
     setNewAffirmation(e.target.value);
-    console.log(newAffirmation);
   };
 
   const handleSubmit = (e) => {
