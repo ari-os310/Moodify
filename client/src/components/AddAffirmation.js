@@ -1,5 +1,8 @@
-import React, {useState} from 'react';
-import { addAffirmation } from '../helper-functions/moodify-db-functions';
+import React, { useState } from 'react';
+import {
+  addAffirmation,
+  getAffirmationByMood,
+} from '../helper-functions/moodify-db-functions';
 import {
   Card,
   CardHeader,
@@ -13,23 +16,31 @@ import {
 } from 'reactstrap';
 
 const AddAffirmation = (props) => {
+  const mood = props.mood;
   const [newAffirmation, setNewAffirmation] = useState();
-  // const [affirmations, setAffirmations] = useState(props.affirmations)
+  const [affirmations, setAffirmations] = useState(props.affirmations);
   // console.log(affirmations)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let userAffirmation = {
-      affirmation: newAffirmation
-    }
-    // addAffirmation(userAffirmation).then((affirmation) => )
-   console.log(userAffirmation);
+      affirmation: newAffirmation,
+      mood: mood.id,
+    };
+    addAffirmation(userAffirmation).then((affirmation) => {
+      setAffirmations(affirmation);
+    });
+    // if (props.mood && affirmations) {
+    //   getAffirmationByMood(mood.name).then((affirmations) => {
+    //     setAffirmations(affirmations);
+    //   });
+    // }
   };
 
   const handleAffirmationChange = (e) => {
     setNewAffirmation(e.target.value);
-    console.log(newAffirmation)
-  }
+    console.log(newAffirmation);
+  };
 
   return (
     <Col>

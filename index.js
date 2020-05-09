@@ -55,10 +55,10 @@ app.get('/moods/:mood/affirmations', (req, res) => {
 });
 
 // POST AFFIRMATION
-app.post('/moods/:mood/affirmations', (req, res) => {
+app.post('/moods/mood/affirmations', (req, res) => {
   db.addAffirmation({
     affirmation: req.body.affirmation,
-    mood: req.params.mood,
+    mood: req.body.mood,
   })
     .then((affirmation) => res.json(affirmation))
     .catch((err) => {

@@ -58,13 +58,23 @@ class MoodifyDatabase {
 
   // look up memoization
   // subquery ?
+  // addAffirmation = ({ affirmation, mood }) => {
+  //   return this.db.one(
+  //     `INSERT INTO affirmations 
+  //     (affirmation, mood_id)
+  //     VALUES ($1, $2)
+  //     RETURNING *`,
+  //     [affirmation, this.moodMap[mood]]
+  //   );
+  // };
+
   addAffirmation = ({ affirmation, mood }) => {
     return this.db.one(
       `INSERT INTO affirmations 
       (affirmation, mood_id)
       VALUES ($1, $2)
       RETURNING *`,
-      [affirmation, this.moodMap[mood]]
+      [affirmation, mood]
     );
   };
 }
