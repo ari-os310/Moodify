@@ -30,7 +30,13 @@ const AvatarPage = (props) => {
             <AffirmationsList affirmations={affirmations} />
           </Col>
           <Col>
-            <AddAffirmation mood={mood} affirmations={affirmations} />
+            <AddAffirmation
+              mood={mood}
+              affirmations={affirmations}
+              callBack={(newAffirmation) =>
+                setAffirmations([...affirmations, newAffirmation])
+              }
+            />
           </Col>
         </Row>
       </Container>

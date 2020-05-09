@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import {
-  addAffirmation,
-  getAffirmationByMood,
-} from '../helper-functions/moodify-db-functions';
+import { addAffirmation } from '../helper-functions/moodify-db-functions';
 import {
   Card,
   CardHeader,
@@ -18,7 +15,7 @@ import {
 const AddAffirmation = (props) => {
   const mood = props.mood;
   const [newAffirmation, setNewAffirmation] = useState();
-  const [affirmations, setAffirmations] = useState(props.affirmations);
+  console.log(props.affirmations);
 
   const handleAffirmationChange = (e) => {
     setNewAffirmation(e.target.value);
@@ -27,23 +24,16 @@ const AddAffirmation = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let userAffirmation = {
-      affirmation: newAffirmation,
-      mood: mood.id,
-    };
-
-    // const postAffirmation = () => {
-    addAffirmation(userAffirmation).then((affirmation) => {
-      setAffirmations(affirmation);
-    });
-    // }
+    if (newAffirmation) {
+      let userAffirmation = {
+        affirmation: newAffirmation,
+        mood: mood.id,
+      };
+      addAffirmation(userAffirmation).then((affirmative) =>
+        props.callBack(affirmative)
+      );
+    }
     setNewAffirmation('');
-
-    // if (props.mood && affirmations) {
-    // getAffirmationByMood(mood.name).then((affirmations) => {
-    //   setAffirmations(affirmations);
-    //   });
-    // }
   };
 
   return (
