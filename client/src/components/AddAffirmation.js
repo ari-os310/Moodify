@@ -19,7 +19,13 @@ const AddAffirmation = (props) => {
   const mood = props.mood;
   const [newAffirmation, setNewAffirmation] = useState();
   const [affirmations, setAffirmations] = useState(props.affirmations);
+  const [inputValue, setInputValue] = useState(newAffirmation);
   // console.log(affirmations)
+
+  const handleAffirmationChange = (e) => {
+    setNewAffirmation(e.target.value);
+    console.log(newAffirmation);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,16 +36,15 @@ const AddAffirmation = (props) => {
     addAffirmation(userAffirmation).then((affirmation) => {
       setAffirmations(affirmation);
     });
+    // }
+
+    setInputValue('');
+
     // if (props.mood && affirmations) {
     //   getAffirmationByMood(mood.name).then((affirmations) => {
     //     setAffirmations(affirmations);
     //   });
     // }
-  };
-
-  const handleAffirmationChange = (e) => {
-    setNewAffirmation(e.target.value);
-    console.log(newAffirmation);
   };
 
   return (
@@ -58,6 +63,7 @@ const AddAffirmation = (props) => {
                   id='textform'
                   placeholder='Want to save an affirmation for later? Go Ahead!'
                   onChange={handleAffirmationChange}
+                  value={inputValue}
                 />
               </Col>
             </FormGroup>
