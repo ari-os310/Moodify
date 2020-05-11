@@ -70,14 +70,13 @@ app.post('/moods/mood/affirmations', (req, res) => {
     });
 });
 
-/*** leaving here for future PUT/DELETE *** \
-
-// DELETE AFFIRMATION 
-// app.delete('/affirmations/:id', (req, res) => {
-//   db.getAffirmationById(req.params.id).then((affirmation) =>
-//     res.json(affirmation)
-//   );
-// });
+// DELETE AFFIRMATION
+app.delete('/affirmations/:id', (req, res) => {
+  const id = req.params.id;
+  db.deleteAffirmation(id).then(() =>
+    res.json(`Affirmation with id ${id} was deleted.`)
+  );
+});
 
 /* TEXT TO SPEECH */
 

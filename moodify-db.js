@@ -5,10 +5,6 @@ class MoodifyDatabase {
     const connectionString =
       process.env.DATABASE_URL || `postgres://localhost:5432/${name}`;
     this.db = pgp(connectionString);
-    this.moodMap = {};
-    this.getAllMoods().then((moods) => {
-      moods.forEach((mood) => (this.moodMap[mood.name] = mood.id));
-    });
   }
 
   dbConnectionCheck = () => {
@@ -58,16 +54,6 @@ class MoodifyDatabase {
 
   // look up memoization
   // subquery ?
-  // addAffirmation = ({ affirmation, mood }) => {
-  //   return this.db.one(
-  //     `INSERT INTO affirmations 
-  //     (affirmation, mood_id)
-  //     VALUES ($1, $2)
-  //     RETURNING *`,
-  //     [affirmation, this.moodMap[mood]]
-  //   );
-  // };
-
   addAffirmation = ({ affirmation, mood }) => {
     return this.db.one(
       `INSERT INTO affirmations 
@@ -75,6 +61,16 @@ class MoodifyDatabase {
       VALUES ($1, $2)
       RETURNING *`,
       [affirmation, mood]
+    );
+  };
+
+  deleteAffirmation = (id) => {
+    return this.db.result(
+      `DELETE 
+      FROM affirmations 
+      WHERE id = $1`,
+      id,
+      (a) => a.rowCount
     );
   };
 }

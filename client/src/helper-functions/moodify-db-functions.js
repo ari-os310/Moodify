@@ -74,3 +74,20 @@ export function addAffirmation({ affirmation, mood }) {
     })
     .catch(console.error);
 }
+
+export function deleteAffirmation(id) {
+  const path = `/affirmations/${id}`;
+  return fetch(path, {
+    headers: {
+      Accept: 'application/json',
+    },
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.status(204).send(`Affirmation was deleted by id ${id}.`);
+      } else {
+        throw new Error(sendError(path, res));
+      }
+    })
+    .catch(console.error);
+}
