@@ -12,9 +12,11 @@ const AffirmationsList = (props) => {
     <div className='AffirmationsList'>
       <ListGroup>
         {props.affirmations.map((affirmation, i) => (
-          <ListGroupItem key={i} tag='button' action onClick={() => onClick(i)}>
-            {affirmation.affirmation}
-            
+          <ListGroupItem key={i} action>
+            <button className='play' onClick={() => onClick(i)}>
+              {affirmation.affirmation}
+            </button>
+
             <audio
               className={'audio'}
               src={`/affirmations/${affirmation.id}.mp3`}
@@ -22,10 +24,11 @@ const AffirmationsList = (props) => {
             />
 
             <button
-              onClick={() => deleteAffirmation(i)}
-              className='delete'
+              onClick={() =>
+                deleteAffirmation(affirmation.id, props.deleteAffirmation)
+              }
+              className='close'
               type='button'
-              class='close'
               aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
             </button>

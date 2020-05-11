@@ -28,6 +28,10 @@
   flex-direction: row;
 }
 
+.hidden {
+  display: none;
+}
+
 /* AFFIRMATIONS STYLING */
 .list-group {
   margin-left: 5%;
@@ -42,11 +46,27 @@
   background-color: rgb(218, 249, 210);
 }
 
-.delete {
-  background: #aaf;
+.close {
+  background: rgba(255, 0, 0, 0.55);
 }
 
 /* Avatar Bar */
 h1 {
   text-align: center;
+}
+
+/* Home Button */
+.reset {
+  margin-top: 1rem;
+  position: relative;
+  margin-left: 3rem;
+}
+
+/* Play Audio */
+.play {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  font-family: arial, sans-serif;
+  cursor: pointer;
 }

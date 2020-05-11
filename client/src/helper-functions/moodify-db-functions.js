@@ -75,16 +75,19 @@ export function addAffirmation({ affirmation, mood }) {
     .catch(console.error);
 }
 
-export function deleteAffirmation(id) {
+export function deleteAffirmation(id, callback) {
   const path = `/affirmations/${id}`;
   return fetch(path, {
+    method: 'DELETE',
     headers: {
       Accept: 'application/json',
     },
   })
+    .then(res => res.json())
     .then((res) => {
-      if (res.ok) {
-        return res.status(204).send(`Affirmation was deleted by id ${id}.`);
+      if (res.result==='ok') {
+        callback(id)
+        // return alert(res.message); **replace w Flash l8r
       } else {
         throw new Error(sendError(path, res));
       }

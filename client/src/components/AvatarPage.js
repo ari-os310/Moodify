@@ -3,6 +3,7 @@ import { getAffirmationByMood } from '../helper-functions/moodify-db-functions';
 import AffirmationsList from './AffirmationsList';
 import AvatarTitle from './AvatarTitle';
 import AddAffirmation from './AddAffirmation';
+import Reset from './Reset';
 import { Col, Container, Row } from 'reactstrap';
 
 const AvatarPage = (props) => {
@@ -14,6 +15,10 @@ const AvatarPage = (props) => {
       setAffirmations(affirmations);
     });
   };
+
+  const deleteAffirmation = (id) => {
+    setAffirmations(affirmations.filter(aff => aff.id !== id))
+  }
 
   if (mood && !affirmations.length) {
     getAffirmations();
@@ -27,7 +32,9 @@ const AvatarPage = (props) => {
       <Container fluid={true}>
         <Row xs='2'>
           <Col>
-            <AffirmationsList affirmations={affirmations} />
+            <AffirmationsList 
+            affirmations={affirmations} 
+            deleteAffirmation={deleteAffirmation}/>
           </Col>
           <Col>
             <AddAffirmation
@@ -37,6 +44,9 @@ const AvatarPage = (props) => {
                 setAffirmations([...affirmations, newAffirmation])
               }
             />
+            <div className='reset'>
+              <Reset reset={props.reset} />
+            </div>
           </Col>
         </Row>
       </Container>

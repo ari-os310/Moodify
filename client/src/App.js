@@ -7,12 +7,13 @@ import {
 import MoodGrid from './components/MoodGrid';
 import AvatarPage from './components/AvatarPage';
 import NavBar from './components/NavBar';
-import Reset from './components/Reset';
+// import Reset from './components/Reset';
 
 const initialState = {
   moods: [],
   currentMood: null,
-  voices: []
+  voices: [],
+  showMoods: true,
 };
 
 class App extends Component {
@@ -27,12 +28,12 @@ class App extends Component {
   }
 
   resetMoodState = () => {
-    this.setState({ currentMood: null });
+    this.setState({ currentMood: null, showMoods: true });
     window.history.replaceState(null, null, ' ');
   };
 
   onClick = (mood) => {
-    this.setState({ currentMood: mood });
+    this.setState({ currentMood: mood, showMoods: false });
     window.location.hash = 'currentMood';
   };
 
@@ -41,16 +42,19 @@ class App extends Component {
       <div className='App'>
         <NavBar voices={this.state.voices} />
 
-        <MoodGrid moods={this.state.moods} onClick={this.onClick} />
+        <div className={!this.state.showMoods ? 'hidden' : ''}>
+          <MoodGrid moods={this.state.moods} onClick={this.onClick} />
+        </div>
+
         <div id='currentMood'>
           {this.state.currentMood ? (
-            <AvatarPage mood={this.state.currentMood} />
+            <AvatarPage mood={this.state.currentMood} reset={this.resetMoodState} />
           ) : null}
         </div>
 
-        <div className='Reset'>
+        {/* <div className='Reset'>
           <Reset reset={this.resetMoodState} />
-        </div>
+        </div> */}
       </div>
     );
   }

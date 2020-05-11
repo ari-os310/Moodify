@@ -8,7 +8,7 @@ const Reset = ({ reset }) => {
         event.preventDefault();
         reset();
       }}>
-      Reset
+      Back Home
     </button>
   );
 };

@@ -73,9 +73,19 @@ app.post('/moods/mood/affirmations', (req, res) => {
 // DELETE AFFIRMATION
 app.delete('/affirmations/:id', (req, res) => {
   const id = req.params.id;
-  db.deleteAffirmation(id).then(() =>
-    res.json(`Affirmation with id ${id} was deleted.`)
-  );
+  db.deleteAffirmation(id).then((rowcount) => {
+    if (rowcount === 1) {
+      res.status(200).json({
+        result: 'ok',
+        message: `Affirmation with id ${id} was deleted.`,
+      });
+    } else {
+      res.status(404).json({
+        result: 'error',
+        message: `Affirmation with id ${id} not found.`,
+      });
+    }
+  });
 });
 
 /* TEXT TO SPEECH */
