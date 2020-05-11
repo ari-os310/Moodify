@@ -1,4 +1,5 @@
 import React from 'react';
+import { deleteAffirmation } from '../helper-functions/moodify-db-functions';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
 const AffirmationsList = (props) => {
@@ -17,7 +18,15 @@ const AffirmationsList = (props) => {
               className={'audio'}
               src={`/affirmations/${affirmation.id}.mp3`}
               type='audio/mpeg'
-            />
+            /> */}
+            <button
+              onClick={() => deleteAffirmation(i)}
+              className='delete'
+              type='button'
+              class='close'
+              aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+            </button>
           </ListGroupItem>
         ))}
       </ListGroup>

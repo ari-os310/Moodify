@@ -27,8 +27,8 @@ const AddAffirmation = (props) => {
         affirmation: newAffirmation,
         mood: mood.id,
       };
-      addAffirmation(userAffirmation).then((affirmative) =>
-        props.callBack(affirmative)
+      addAffirmation(userAffirmation).then((affirmations) =>
+        props.callBack(affirmations)
       );
     }
     setNewAffirmation('');

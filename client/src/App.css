@@ -42,6 +42,10 @@
   background-color: rgb(218, 249, 210);
 }
 
+.delete {
+  background: #aaf;
+}
+
 /* Avatar Bar */
 h1 {
   text-align: center;
