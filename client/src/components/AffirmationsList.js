@@ -27,7 +27,7 @@ const AffirmationsList = (props) => {
               onClick={() =>
                 deleteAffirmation(affirmation.id, props.deleteAffirmation)
               }
-              className='close'
+              className='delete'
               type='button'
               aria-label='Close'>
               <span aria-hidden='true'>&times;</span>

@@ -7,7 +7,6 @@ import {
 import MoodGrid from './components/MoodGrid';
 import AvatarPage from './components/AvatarPage';
 import NavBar from './components/NavBar';
-// import Reset from './components/Reset';
 
 const initialState = {
   moods: [],
@@ -29,12 +28,10 @@ class App extends Component {
 
   resetMoodState = () => {
     this.setState({ currentMood: null, showMoods: true });
-    window.history.replaceState(null, null, ' ');
   };
 
   onClick = (mood) => {
     this.setState({ currentMood: mood, showMoods: false });
-    window.location.hash = 'currentMood';
   };
 
   render() {
@@ -48,13 +45,12 @@ class App extends Component {
 
         <div id='currentMood'>
           {this.state.currentMood ? (
-            <AvatarPage mood={this.state.currentMood} reset={this.resetMoodState} />
+            <AvatarPage
+              mood={this.state.currentMood}
+              reset={this.resetMoodState}
+            />
           ) : null}
         </div>
-
-        {/* <div className='Reset'>
-          <Reset reset={this.resetMoodState} />
-        </div> */}
       </div>
     );
   }

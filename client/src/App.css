@@ -46,13 +46,27 @@
   background-color: rgb(218, 249, 210);
 }
 
-.close {
-  background: rgba(255, 0, 0, 0.55);
+.delete {
+  position: absolute;
+  right: 0.25rem;
+  border: none;
+  background: none;
 }
 
-/* Avatar Bar */
+.delete:hover {
+  background: rgb(255, 0, 0);
+
+}
+/* Avatar Title */
 h1 {
-  text-align: center;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.jumbotron {
+  background: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 /* Home Button */
@@ -62,11 +76,12 @@ h1 {
   margin-left: 3rem;
 }
 
-/* Play Audio */
+/* Play Affirmation */
 .play {
   background: none !important;
   border: none;
   padding: 0 !important;
-  font-family: arial, sans-serif;
   cursor: pointer;
+  position: relative;
+  margin-right: 2rem;
 }

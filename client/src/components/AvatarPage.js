@@ -17,8 +17,8 @@ const AvatarPage = (props) => {
   };
 
   const deleteAffirmation = (id) => {
-    setAffirmations(affirmations.filter(aff => aff.id !== id))
-  }
+    setAffirmations(affirmations.filter((aff) => aff.id !== id));
+  };
 
   if (mood && !affirmations.length) {
     getAffirmations();
@@ -26,15 +26,22 @@ const AvatarPage = (props) => {
     getAffirmations();
   }
 
+  const style = {
+    backgroundColor: `${mood.color}`
+    };
+
+    console.log(`${mood.color}`, mood)
+
   return (
-    <div className='AvatarPage'>
-      <AvatarTitle title={mood.name} />
+    <div className='AvatarPage' style={style}>
+      <AvatarTitle title={mood.name} avatar={mood.avatar} color={mood.color} />
       <Container fluid={true}>
         <Row xs='2'>
           <Col>
-            <AffirmationsList 
-            affirmations={affirmations} 
-            deleteAffirmation={deleteAffirmation}/>
+            <AffirmationsList
+              affirmations={affirmations}
+              deleteAffirmation={deleteAffirmation}
+            />
           </Col>
           <Col>
             <AddAffirmation

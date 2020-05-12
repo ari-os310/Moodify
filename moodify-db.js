@@ -24,7 +24,8 @@ class MoodifyDatabase {
       m.id,
       m.name,
       m.blurb,
-      m.avatar
+      m.avatar,
+      m.color
       FROM moods m`
     );
   };
