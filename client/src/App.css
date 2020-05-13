@@ -41,6 +41,10 @@
   margin: 5% 1%;
 }
 
+.textform{
+  margin: 1% 8%;
+}
+
 /* AFFIRMATIONS STYLING */
 .list-group {
   margin: 5% 1%;
@@ -68,14 +72,27 @@ span:hover {
 }
 
 /* Avatar Title */
+@media screen and (max-width: 1024px){
+  h1 {
+    visibility: hidden;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 7px;
+    letter-spacing: 1rem;
+    word-spacing: 12rem;
+    vertical-align: middle;
+    word-wrap: normal;
+  }
+}
+
 h1 {
   text-transform: uppercase;
-  text-shadow: 3px 3px 7px;
-  letter-spacing: 1rem;
-  word-spacing: 12rem;
+  text-shadow: 4px 4px 4px;
+  letter-spacing: 1.5rem;
+  word-spacing: 10rem;
   vertical-align: middle;
   word-wrap: normal;
 }
+
 
 .jumbotron {
   background: no-repeat;
@@ -88,7 +105,7 @@ h1 {
 .left {
   text-align: right;
   display: inline-block;
-  width: 75%;
+  width: 82%;
 }
 
 .right {
