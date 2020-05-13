@@ -27,14 +27,12 @@ const AvatarPage = (props) => {
   }
 
   const style = {
-    backgroundColor: `${mood.color}`
-    };
-
-    console.log(`${mood.color}`, mood)
+    backgroundColor: `${mood.accent}`,
+  };
 
   return (
     <div className='AvatarPage' style={style}>
-      <AvatarTitle title={mood.name} avatar={mood.avatar} color={mood.color} />
+      <AvatarTitle mood={mood} />
       <Container fluid={true}>
         <Row xs='2'>
           <Col>

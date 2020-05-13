@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     // flexGrow: 1,
   },
   appBar: {
+    backgroundColor: '#FCB983',
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -130,7 +131,7 @@ export default function NavBar(props) {
           </IconButton>
         </div>
         {/* <Divider /> */}
-        
+
         <List>
           {voices.map((voice, index) => (
             <ListItem button key={index}>

@@ -25,7 +25,10 @@ class MoodifyDatabase {
       m.name,
       m.blurb,
       m.avatar,
-      m.color
+      m.color,
+      m.accent,
+      m.trim,
+      m.taccent
       FROM moods m`
     );
   };

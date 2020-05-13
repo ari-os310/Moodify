@@ -43,7 +43,7 @@ class App extends Component {
           <MoodGrid moods={this.state.moods} onClick={this.onClick} />
         </div>
 
-        <div id='currentMood'>
+        <div>
           {this.state.currentMood ? (
             <AvatarPage
               mood={this.state.currentMood}

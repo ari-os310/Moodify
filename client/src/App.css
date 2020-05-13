@@ -55,18 +55,34 @@
 
 .delete:hover {
   background: rgb(255, 0, 0);
-
 }
 /* Avatar Title */
 h1 {
-  text-align: left;
-  word-wrap: break-word;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 7px;
+  letter-spacing: 1rem;
+  word-spacing: 12rem;
+  vertical-align: middle;
+  word-wrap: normal;
 }
 
 .jumbotron {
   background: no-repeat;
   background-size: contain;
   background-position: center;
+  border-bottom-style: double;
+  border-width: 0.5rem;
+}
+
+.left {
+  text-align: right;
+  display: inline-block;
+  width: 75%;
+}
+
+.right {
+  text-align: right;
+  display: inline-block;
 }
 
 /* Home Button */
