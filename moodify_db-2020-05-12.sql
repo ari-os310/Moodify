@@ -59,7 +59,11 @@ CREATE TABLE public.moods (
     id integer NOT NULL,
     name character varying NOT NULL,
     blurb character varying,
-    avatar character varying
+    avatar character varying,
+    color character varying,
+    accent character varying,
+    "trim" character varying,
+    taccent text
 );
 
 
@@ -131,6 +135,8 @@ COPY public.affirmations (id, affirmation, mood_id) FROM stdin;
 31	I trust the process of life and don’t resist change.	9
 32	I trust myself to make the right decisions in life.	9
 33	Everything is happening as it should, the universe has my back.	9
+95	Everything will be okay because I am stronger.	5
+96	Let's feed love back into ourselves.	2
 \.
 
 
@@ -138,16 +144,16 @@ COPY public.affirmations (id, affirmation, mood_id) FROM stdin;
 -- Data for Name: moods; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.moods (id, name, blurb, avatar) FROM stdin;
-1	Anger	Let's take some space !	https://image.flaticon.com/icons/svg/1579/1579480.svg
-2	Sad	Everyone's sad sometimes!	https://image.flaticon.com/icons/svg/2204/2204408.svg
-7	Shame	No shame in the game!	https://image.flaticon.com/icons/svg/817/817778.svg
-3	Happy	Celebrate your joy!	https://image.flaticon.com/icons/svg/1788/1788866.svg
-8	Excited	Hip Hip Hooray!	https://image.flaticon.com/icons/svg/2040/2040632.svg
-6	Anxiety	Breathe with me.	https://image.flaticon.com/icons/svg/826/826580.svg
-5	Fear	Release All of it.	https://image.flaticon.com/icons/svg/1970/1970352.svg
-4	Confused	Uhhhh?	https://image.flaticon.com/icons/svg/1917/1917675.svg
-9	Trusting	Embrace life <3	https://image.flaticon.com/icons/svg/2077/2077885.svg
+COPY public.moods (id, name, blurb, avatar, color, accent, "trim", taccent) FROM stdin;
+3	Happy	Celebrate your joy!	https://image.flaticon.com/icons/svg/1788/1788866.svg	#F9F4BB	#F7EF87	#EFC083	#EDB46F
+8	Excited	Hip Hip Hooray!	https://image.flaticon.com/icons/svg/2040/2040632.svg	#E0EBFC	#C2D8F9	#3762CC	#577ACC
+5	Fear	Release All of it.	https://image.flaticon.com/icons/svg/1970/1970352.svg	#F2E2A2	#F4DD7F	brown	#BF8263
+7	Shame	No shame in the game!	https://image.flaticon.com/icons/svg/817/817778.svg	#C9F2DF	#9BDFC1	black	#225137
+9	Trusting	Embrace life <3	https://image.flaticon.com/icons/svg/2077/2077885.svg	#F9D6E4	#F9CADC	#E8899E	#DB7A8F
+1	Anger	Let's take some space!	https://image.flaticon.com/icons/svg/1579/1579480.svg	#F7DC70	#FDB058	#E04153	#C44A56
+6	Anxiety	Breathe with me.	https://image.flaticon.com/icons/svg/826/826580.svg	#D3D4ED	#C6C8EF	#7D6599	#654C84
+4	Confused	Uhhhh?	https://image.flaticon.com/icons/svg/1917/1917675.svg	#EAE7AF	#EDDB76	\N	\N
+2	Sad	Everyone's sad sometimes!	https://image.flaticon.com/icons/svg/2204/2204408.svg	#DBFCFB	#BBF9F7	#62DDFC	#66C1FF
 \.
 
 
@@ -155,7 +161,7 @@ COPY public.moods (id, name, blurb, avatar) FROM stdin;
 -- Name: affirmations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.affirmations_id_seq', 33, true);
+SELECT pg_catalog.setval('public.affirmations_id_seq', 114, true);
 
 
 --
