@@ -34,7 +34,7 @@ const AvatarPage = (props) => {
     <div className='AvatarPage' style={style}>
       <AvatarTitle mood={mood} />
       <Container fluid={true}>
-        <Row xs='2'>
+        <Row xs='1' md='2'>
           <Col>
             <AffirmationsList
               affirmations={affirmations}

@@ -36,7 +36,7 @@ const AddAffirmation = (props) => {
 
   return (
     <Col>
-      <Card id='addaffirmation'>
+      <Card id='addaffirmation' className='addaffirmation'>
         <CardHeader id='addaffirmation' tag='h3'>
           Add Your Own
         </CardHeader>

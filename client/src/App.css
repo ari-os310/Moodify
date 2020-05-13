@@ -23,6 +23,11 @@
   font-size: medium;
 }
 
+.card-img:hover {
+  transform: rotateY(180deg);
+  transition: linear 0.65s;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -32,13 +37,18 @@
   display: none;
 }
 
+.addaffirmation {
+  margin: 5% 1%;
+}
+
 /* AFFIRMATIONS STYLING */
 .list-group {
-  margin-left: 5%;
+  margin: 5% 1%;
   width: fit-content;
 }
 
 .list-group-item {
+  padding: 1rem;
   background-color: #f9f6f6;
   border: 1px solid #000202;
 }
@@ -53,9 +63,10 @@
   background: none;
 }
 
-.delete:hover {
-  background: rgb(255, 0, 0);
+span:hover {
+  color: rgb(255, 0, 0);
 }
+
 /* Avatar Title */
 h1 {
   text-transform: uppercase;
