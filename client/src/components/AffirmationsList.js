@@ -17,13 +17,13 @@ const AffirmationsList = (props) => {
             <a className='play' onClick={() => onClick(i)}>
               {affirmation.affirmation}
             </a>
-
             <audio
               className={'audio'}
               src={`/affirmations/${affirmation.id}.mp3`}
               type='audio/mpeg'
             />
 
+            {/* eslint-disable-next-line */}
             <a
               onClick={() =>
                 deleteAffirmation(affirmation.id, props.deleteAffirmation)
