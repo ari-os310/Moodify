@@ -1,4 +1,5 @@
 import React from 'react';
+import HomeButton from './HomeButton';
 
 const Reset = ({ reset }) => {
   return (
@@ -8,13 +9,7 @@ const Reset = ({ reset }) => {
         event.preventDefault();
         reset();
       }}>
-      <input
-        className='home'
-        type='image'
-        src='https://bit.ly/2WrFkp8'
-        alt='Go Home'
-      />
-      <span className='hometxt'>Take Me Home</span>
+      <HomeButton />
     </div>
   );
 };
