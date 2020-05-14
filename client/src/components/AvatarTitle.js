@@ -1,13 +1,14 @@
 import React from 'react';
 import { Jumbotron, Container, Row, Col } from 'reactstrap';
 
-const AvatarTitle = (props) => {
-  const mood = props.mood;
+const AvatarTitle = ({ mood }) => {
+  const { avatar, color, trim, taccent, title, name } = mood;
+
   const style = {
-    backgroundColor: `${mood.color}`,
-    backgroundImage: `url(${mood.avatar})`,
-    borderColor: `${mood.trim}`,
-    color: `${mood.taccent}`,
+    backgroundColor: `${color}`,
+    backgroundImage: `url(${avatar})`,
+    borderColor: `${trim}`,
+    color: `${taccent}`,
   };
 
   return (
@@ -16,8 +17,8 @@ const AvatarTitle = (props) => {
         <Container fluid>
           <Row xs='1' md='2'>
             <Col>
-              <h1 key={mood.title} className='left'>
-                {mood.name}{' '}
+              <h1 key={title} className='left'>
+                {name}{' '}
               </h1>
             </Col>
             <Col>
