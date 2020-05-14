@@ -1,12 +1,15 @@
 /* CARD STYLING */
-.card:hover:not(#addaffirmation) {
-  background-color: rgb(255, 212, 175);
-}
-
 .card:not(#addaffirmation) {
+  cursor: pointer;
   width: 98%;
   height: 90%;
-  cursor: pointer;
+  border-radius: 4%;
+}
+
+.card:hover:not(#addaffirmation) {
+  background-color: rgb(255, 212, 175);
+  box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-title {
@@ -41,7 +44,7 @@
   margin: 5% 1%;
 }
 
-.textform{
+.textform {
   margin: 1% 8%;
 }
 
@@ -67,12 +70,12 @@
   background: none;
 }
 
-span:hover {
+.x:hover {
   color: rgb(255, 0, 0);
 }
 
 /* Avatar Title */
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 768px) {
   h1 {
     visibility: hidden;
     text-transform: uppercase;
@@ -93,7 +96,6 @@ h1 {
   word-wrap: normal;
 }
 
-
 .jumbotron {
   background: no-repeat;
   background-size: contain;
@@ -103,21 +105,44 @@ h1 {
 }
 
 .left {
-  text-align: right;
+  text-align: center;
   display: inline-block;
-  width: 82%;
+  width: 100%;
 }
 
 .right {
-  text-align: right;
+  text-align: center;
   display: inline-block;
+  width: 100%;
 }
 
 /* Home Button */
-.reset {
-  margin-top: 1rem;
+.gohome {
+  line-height: 60px;
+  width: 259px;
+}
+
+.gohome:hover {
+  transform: scaleY(1.3);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.gohome:active {
+  transform: translateY(3px);
+}
+
+.home {
   position: relative;
   margin-left: 3rem;
+  width: 40px;
+  height: 40px;
+}
+
+.hometxt {
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  word-spacing: 0.25rem;
 }
 
 /* Play Affirmation */

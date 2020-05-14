@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Container } from 'reactstrap';
+import { Jumbotron, Container, Row, Col } from 'reactstrap';
 
 const AvatarTitle = (props) => {
   const mood = props.mood;
@@ -14,9 +14,18 @@ const AvatarTitle = (props) => {
     <div>
       <Jumbotron fluid style={style}>
         <Container fluid>
-          <h1 key={mood.title} className='left'>
-            {mood.name} <div className='right'> Avatar</div>
-          </h1>
+          <Row xs='1' md='2'>
+            <Col>
+              <h1 key={mood.title} className='left'>
+                {mood.name}{' '}
+              </h1>
+            </Col>
+            <Col>
+              <h1>
+                <div className='right'> Avatar</div>
+              </h1>
+            </Col>
+          </Row>
         </Container>
       </Jumbotron>
     </div>

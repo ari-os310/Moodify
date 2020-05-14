@@ -13,6 +13,7 @@ const AffirmationsList = (props) => {
       <ListGroup>
         {props.affirmations.map((affirmation, i) => (
           <ListGroupItem key={i} action>
+            {/* eslint-disable-next-line */}
             <a className='play' onClick={() => onClick(i)}>
               {affirmation.affirmation}
             </a>
@@ -30,7 +31,7 @@ const AffirmationsList = (props) => {
               className='delete'
               type='button'
               aria-label='Close'>
-              <span aria-hidden='true'>&times;</span>
+              <span className='x'>X</span>
             </a>
           </ListGroupItem>
         ))}
