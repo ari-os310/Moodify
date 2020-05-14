@@ -34,6 +34,12 @@ const AddAffirmation = (props) => {
     setNewAffirmation('');
   };
 
+  const onKeyPress = (e) => {
+    if (e.which === 13) {
+      handleSubmit(e);
+    }
+  };
+
   return (
     <Col>
       <Card id='addaffirmation' className='addaffirmation'>
@@ -51,6 +57,7 @@ const AddAffirmation = (props) => {
                   placeholder='Want to save an affirmation for later? Go Ahead!'
                   onChange={handleAffirmationChange}
                   value={newAffirmation}
+                  onKeyPress={onKeyPress}
                 />
               </Col>
             </FormGroup>

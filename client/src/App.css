@@ -61,6 +61,7 @@
 }
 .list-group :hover {
   background-color: rgb(218, 249, 210);
+  font-weight: bold;
 }
 
 .delete {
@@ -70,8 +71,13 @@
   background: none;
 }
 
+.x{
+vertical-align: top;
+}
+
 .x:hover {
   color: rgb(255, 0, 0);
+  font-size: 1.75rem;
 }
 
 /* Avatar Title */
@@ -149,8 +155,13 @@ h1 {
 .play {
   background: none !important;
   border: none;
-  padding: 0 !important;
+  padding: 1%;
   cursor: pointer;
   position: relative;
   margin-right: 2rem;
+  font-size: 18px;
 }
+
+/* .play:hover{
+  font-weight: bold;
+} */
