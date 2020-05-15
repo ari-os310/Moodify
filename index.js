@@ -3,8 +3,8 @@ require('dotenv').config();
 const TextToSpeechV1 = require('ibm-watson/text-to-speech/v1');
 const { IamAuthenticator } = require('ibm-watson/auth');
 const express = require('express');
-const cors = require('cors');
 const path = require('path');
+const cache = require('express-redis-cache')({ expire: 172800 });
 const MoodifyDB = require('./moodify-db');
 
 /* DEFAULT CONST */
@@ -29,7 +29,13 @@ const synthesizeParams = {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(cors({ origin: true, credentials: true }));
+
+cache.on('message', function (message) {
+  console.log('cache', message);
+});
+cache.on('error', function (error) {
+  console.error('cache', error);
+});
 
 /* ROUTES */
 
@@ -91,7 +97,8 @@ app.delete('/affirmations/:id', (req, res) => {
 /* TEXT TO SPEECH */
 
 // PLAY TEXT TO SPEECH BY AFFIRMATION
-app.get('/affirmations/:id.mp3', (req, res) => {
+app.get('/affirmations/:id.mp3', cache.route({ binary: true }), (req, res) => {
+  console.log(res.use_express_redis_cache);
   db.getAffirmationById(req.params.id).then((affirmation) =>
     textToSpeech
       .synthesize({ text: affirmation.affirmation, ...synthesizeParams })
@@ -114,7 +121,7 @@ app.get('/affirmations/:id.mp3', (req, res) => {
 });
 
 // GET ALL VOICES
-app.get('/voicelist', (__, res) => {
+app.get('/voicelist', cache.route(), (__, res) => {
   textToSpeech
     .listVoices()
     .then((voices) => {
@@ -127,7 +134,7 @@ app.get('/voicelist', (__, res) => {
 });
 
 // GET VOICE BY NAME
-app.get('/voices/:voice', (req, res) => {
+app.get('/voices/:voice', cache.route(), (req, res) => {
   const voice = { voice: req.params.voice };
   textToSpeech
     .getVoice(voice)
