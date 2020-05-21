@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { addAffirmation } from '../moodify-db-functions';
+import { addAffirmation } from '../moodify-db-helpers';
 import {
   Card,
   CardHeader,

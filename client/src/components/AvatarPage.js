@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getAffirmationByMood } from '../moodify-db-functions';
+import { getAffirmationByMood } from '../moodify-db-helpers';
 import { Col, Container, Row } from 'reactstrap';
 import AffirmationsList from './AffirmationsList';
 import AvatarTitle from './AvatarTitle';

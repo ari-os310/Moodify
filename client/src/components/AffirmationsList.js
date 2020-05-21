@@ -1,5 +1,5 @@
 import React from 'react';
-import { deleteAffirmation } from '../moodify-db-functions';
+import { deleteAffirmation } from '../moodify-db-helpers';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
 const AffirmationsList = (props) => {
