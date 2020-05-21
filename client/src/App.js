@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
+import { getAllMoods, getAllVoices } from './moodify-db-functions';
 import './App.css';
-import {
-  getAllMoods,
-  getAllVoices,
-} from './helper-functions/moodify-db-functions';
 import MoodGrid from './components/MoodGrid';
 import AvatarPage from './components/AvatarPage';
 import NavBar from './components/NavBar';

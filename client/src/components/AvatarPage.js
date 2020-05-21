@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { getAffirmationByMood } from '../helper-functions/moodify-db-functions';
+import { getAffirmationByMood } from '../moodify-db-functions';
+import { Col, Container, Row } from 'reactstrap';
 import AffirmationsList from './AffirmationsList';
 import AvatarTitle from './AvatarTitle';
 import AddAffirmation from './AddAffirmation';
 import Reset from './Reset';
-import { Col, Container, Row } from 'reactstrap';
 
 const AvatarPage = (props) => {
   const mood = props.mood;

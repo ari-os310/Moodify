@@ -1,5 +1,5 @@
 import React from 'react';
-import { deleteAffirmation } from '../helper-functions/moodify-db-functions';
+import { deleteAffirmation } from '../moodify-db-functions';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
 const AffirmationsList = (props) => {
@@ -29,7 +29,6 @@ const AffirmationsList = (props) => {
                 deleteAffirmation(affirmation.id, props.deleteAffirmation)
               }
               className='delete'
-              type='button'
               aria-label='Close'>
               <span className='x'>X</span>
             </a>

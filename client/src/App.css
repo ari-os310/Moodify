@@ -71,8 +71,8 @@
   background: none;
 }
 
-.x{
-vertical-align: top;
+.x {
+  vertical-align: top;
 }
 
 .x:hover {
@@ -129,13 +129,13 @@ h1 {
 }
 
 .gohome:hover {
-  transform: scaleY(1.3);
+  transform: scaleY(1.1);
   cursor: pointer;
   font-weight: 500;
 }
 
 .gohome:active {
-  transform: translateY(3px);
+  transform: translateY(1.7px);
 }
 
 .home {
