@@ -133,6 +133,7 @@ app.get('/voicelist', cache.route(), (__, res) => {
     });
 });
 
+/* *Next thing to implement, changing voice selection* */
 // GET VOICE BY NAME
 app.get('/voices/:voice', cache.route(), (req, res) => {
   const voice = { voice: req.params.voice };
