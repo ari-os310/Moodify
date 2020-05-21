@@ -49,7 +49,7 @@ const AddAffirmation = (props) => {
         <CardBody id='addaffirmation'>
           <Form>
             <FormGroup row>
-              <Label for='personal' sm={2}></Label>
+              <Label for='personalaffirmation' sm={2}></Label>
               <Col className='textform' sm={10}>
                 <Input
                   type='textarea'
